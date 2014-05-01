@@ -62,7 +62,7 @@
                 <%= raw view.cmd_collection_name cmd %>
               </a>
               <div class="peek-moped-query-details"><%=
-                cmd.to_yaml.gsub(/\!ruby\/object\:Moped\:\:BSON\:\:ObjectId\s*raw_data:.*\n\s*([^\n]*)/) {|capture| "ObjectId(\"#{$1.unpack("m")[0].unpack("H*")[0].force_encoding(Moped::BSON::UTF8_ENCODING)}\")"}
+                cmd.to_yaml.gsub(/\!ruby\/object\:Moped\:\:BSON\:\:ObjectId\s*raw_data:.*\n\s*([^\n]*)/) {|capture| "ObjectId(\"#{$1.unpack("m")[0].unpack("H*")[0].force_encoding(Moped::BSON::UTF8_ENCODING)}\")"} rescue ""
               %></div>
               <div class="peek-moped-query-stack"><b>APP STACK:</b><%= "\n#{row[3].join("\n")}" %></div>
             </div>
